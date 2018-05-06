@@ -81,7 +81,7 @@ def get_objective(prior_model, prm, mb_data_loaders, mb_iterators, mb_posteriors
     # Approximated total objective:
     total_objective = avg_empirical_loss + avg_intra_task_comp + meta_complex_term
 
-    info = {'sample_count': sample_count, 'correct_count': correct_count,
+    info = {'sample_count': get_value(sample_count), 'correct_count': get_value(correct_count),
                   'avg_empirical_loss': get_value(avg_empirical_loss),
                   'avg_intra_task_comp': get_value(avg_intra_task_comp),
                   'meta_comp': get_value(meta_complex_term)}
