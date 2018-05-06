@@ -18,8 +18,12 @@ import pickle
 
 
 def get_value(x):
+    ''' Returns the value of any scalar type'''
     if isinstance(x, Variable):
-        return x.data[0]
+        if hasattr(x, 'item'):
+            return x.item()
+        else:
+            return x.data[0]
     else:
         return x
 
@@ -155,8 +159,10 @@ def get_loss_criterion(loss_type):
 def status_string(i_epoch, num_epochs, batch_idx, n_batches, batch_acc, loss_data):
 
     progress_per = 100. * (i_epoch * n_batches + batch_idx) / (n_batches * num_epochs)
-    return ('({:2.1f}%)\tEpoch: {:3} \t Batch: {:4} \t Objective: {:.4} \t  Acc: {:1.3}\t'.format(
-        progress_per, i_epoch, batch_idx, loss_data, batch_acc))
+    # return ('({:2.1f}%)\tEpoch: {:3} \t Batch: {:4} \t Objective: {:.4} \t  Acc: {:1.3}\t'.format(
+    #     progress_per, i_epoch, batch_idx, loss_data, batch_acc))
+    return ('({:2.1f}%)\tEpoch: {} \t Batch: {} \t Objective: {:.4} \t  Acc: {:1.3}\t'.format(
+        progress_per, i_epoch, batch_idx, loss_data, float(batch_acc)))
 
 # def status_string_meta(i_epoch, prm, batch_acc, loss_data):
 #
