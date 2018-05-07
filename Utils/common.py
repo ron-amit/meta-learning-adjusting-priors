@@ -53,12 +53,13 @@ def randn_gpu(size, mean=0, std=1):
 def count_correct(outputs, targets):
     ''' Deterimne the class prediction by the max output and compare to ground truth'''
     pred = outputs.data.max(1, keepdim=True)[1] # get the index of the max output
-    return pred.eq(targets.data.view_as(pred)).cpu().sum()
+    return get_value(pred.eq(targets.data.view_as(pred)).cpu().sum())
 
 
 def correct_rate(outputs, targets):
     n_correct = count_correct(outputs, targets)
-    return n_correct / outputs.size()[0]
+    n_samples = get_value(outputs.size()[0])
+    return n_correct / n_samples
 
 
 def save_model_state(model, f_path):

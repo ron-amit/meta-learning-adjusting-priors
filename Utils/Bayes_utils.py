@@ -28,7 +28,8 @@ def run_test_Bayes(model, test_loader, loss_criterion, prm, verbose=1):
     else:
         raise ValueError('Invalid test_type')
     if verbose:
-        print('Test Accuracy: {:.3} ({}/{}), Test loss: {:.4}'.format(info['test_acc'], info['n_correct'], info['n_test_samples'], info['test_loss']))
+        print('Test Accuracy: {:.3} ({}/{}), Test loss: {:.4}'.format(float(info['test_acc']), info['n_correct'],
+                                                                      info['n_test_samples'], float(info['test_loss'])))
     return info['test_acc'], info['test_loss']
 
 
