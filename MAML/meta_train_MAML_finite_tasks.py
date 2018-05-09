@@ -11,7 +11,7 @@ import numpy as np
 
 from Models.deterministic_models import get_model
 from Utils import common as cmn
-from Utils.common import grad_step, get_loss_criterion, write_to_log
+from Utils.common import grad_step, get_loss_criterion, write_to_log, get_value
 from MAML.MAML_meta_step import meta_step
 # -------------------------------------------------------------------------------------------
 #  Learning function
@@ -86,7 +86,7 @@ def run_meta_learning(train_data_loaders, prm):
             log_interval = 200
             if i_meta_batch % log_interval == 0:
                 batch_acc = info['correct_count'] / info['sample_count']
-                print(cmn.status_string(i_epoch, num_epochs, i_meta_batch, n_meta_batches, batch_acc, total_objective.data[0]))
+                print(cmn.status_string(i_epoch, num_epochs, i_meta_batch, n_meta_batches, batch_acc, get_value(total_objective)))
         # end  meta-batches loop
 
     # end run_epoch()
