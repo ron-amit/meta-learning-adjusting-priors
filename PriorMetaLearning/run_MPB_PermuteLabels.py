@@ -1,5 +1,6 @@
-from subprocess import call
+from subprocess import call, run
 import argparse
+import os
 
 n_train_tasks = 5
 
@@ -11,10 +12,7 @@ parser.add_argument('--complexity_type', type=str,
 # 'NoComplexity' /  'Variational_Bayes' / 'PAC_Bayes_Pentina'   NewBoundMcAllaster / NewBoundSeeger'"
 
 args = parser.parse_args()
-
 complexity_type = args.complexity_type
-
-
 call(['python', 'main_Meta_Bayes.py',
       '--run-name', 'PermutedLabels_{}_Tasks_{}_Comp'.format(n_train_tasks, complexity_type),
       '--data-source', 'MNIST',

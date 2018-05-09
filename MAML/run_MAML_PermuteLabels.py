@@ -32,7 +32,6 @@ if run_learning:
             mode = 'MetaTrain'
         else:
             mode = 'LoadMetaModel'
-
         call(['python', 'main_MAML.py',
               '--run-name', sub_runs_names[i_run],
               '--mode', mode,

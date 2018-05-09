@@ -54,7 +54,7 @@ class StochasticLayer(nn.Module):
 
             noise = Variable(noise, requires_grad=False)
 
-            out_var = F.relu(out_var) # to avoid nan due to numerical errors
+            out_var = F.relu(out_var) # to avoid nan due to numerical errors in sqrt
             layer_out = out_mean + noise * torch.sqrt(out_var)
 
         return layer_out

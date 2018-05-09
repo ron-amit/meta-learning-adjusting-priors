@@ -67,9 +67,11 @@ def run_learning(data_loader, prm, prior_model=None, init_from_prior=True, verbo
             # Monte-Carlo iterations:
             empirical_loss = 0
             n_MC = prm.n_MC
-            for i_MC in range(n_MC):
-                # get batch:
-                inputs, targets = data_gen.get_batch_vars(batch_data, prm)
+
+            # get batch:
+            inputs, targets = data_gen.get_batch_vars(batch_data, prm)
+            
+            for i_MC in range(n_MC):           
 
                 # calculate objective:
                 outputs = post_model(inputs)
