@@ -95,7 +95,7 @@ def run_learning(data_loader, prm, prior_model=None, init_from_prior=True, verbo
             log_interval = 500
             if batch_idx % log_interval == 0:
                 batch_acc = correct_rate(outputs, targets)
-                print(cmn.status_string(i_epoch, prm.num_epochs, batch_idx, n_batches, batch_acc, objective.data[0]) +
+                print(cmn.status_string(i_epoch, prm.num_epochs, batch_idx, n_batches, batch_acc, get_value(objective)) +
                       ' Loss: {:.4}\t Comp.: {:.4}'.format(get_value(empirical_loss), get_value(complexity_term)))
     # -------------------------------------------------------------------------------------------
     #  Main Script

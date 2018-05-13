@@ -5,7 +5,7 @@ import timeit
 
 from Models.deterministic_models import get_model
 from Utils import common as cmn, data_gen
-from Utils.common import count_correct, grad_step, correct_rate, get_loss_criterion
+from Utils.common import count_correct, grad_step, correct_rate, get_loss_criterion, get_value
 
 
 def run_learning(data_loader, prm, verbose=1, initial_model=None):
@@ -83,7 +83,7 @@ def run_learning(data_loader, prm, verbose=1, initial_model=None):
             # Print status:
             if batch_idx % log_interval == 0:
                 batch_acc = correct_rate(outputs, targets)
-                print(cmn.status_string(i_epoch, prm.num_epochs, batch_idx, n_batches, batch_acc, loss.data[0]))
+                print(cmn.status_string(i_epoch, prm.num_epochs, batch_idx, n_batches, batch_acc, get_value(loss)))
 
     # -----------------------------------------------------------------------------------------------------------#
     # Update Log file
@@ -127,7 +127,7 @@ def run_test(model, test_loader, loss_criterion, prm):
 
     n_test_samples = len(test_loader.dataset)
     n_test_batches = len(test_loader)
-    test_loss = test_loss.data[0] / n_test_batches
+    test_loss = get_value(test_loss) / n_test_batches
     test_acc = n_correct / n_test_samples
     print('\nTest set: Average loss: {:.4}, Accuracy: {:.3} ( {}/{})\n'.format(
         test_loss, test_acc, n_correct, n_test_samples))

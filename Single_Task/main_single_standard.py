@@ -31,7 +31,7 @@ parser.add_argument('--test-batch-size',type=int,  help='input batch size for te
 # ----- Task Parameters ---------------------------------------------#
 
 parser.add_argument('--data-source', type=str, help="Data: 'MNIST' / 'CIFAR10' / Omniglot / SmallImageNet",
-                    default='SmallImageNet')
+                    default='MNIST')
 
 parser.add_argument('--data-transform', type=str, help="Data transformation:  'None' / 'Permute_Pixels' / 'Permute_Labels'/ Shuffled_Pixels ",
                     default='None')
