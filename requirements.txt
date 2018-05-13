@@ -1,0 +1,6 @@
+numpy==1.13.3
+matplotlib==2.1.0
+six==1.11.0
+torch==0.4.0a0+7605d19
+Pillow==5.1.0
+torchvision==0.2.1
