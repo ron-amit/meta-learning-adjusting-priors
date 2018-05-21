@@ -6,7 +6,7 @@ import torch
 from torch.autograd import Variable
 import math
 from Utils import common as cmn, data_gen
-from Utils.common import count_correct
+from Utils.common import count_correct, get_value
 import torch.nn.functional as F
 from Models.stochastic_layers import StochasticLayer
 
@@ -51,7 +51,7 @@ def run_test_max_posterior(model, test_loader, loss_criterion, prm):
     test_loss /= n_test_samples
     test_acc = n_correct / n_test_samples
     info = {'test_acc':test_acc, 'n_correct':n_correct, 'test_type':'max_posterior',
-            'n_test_samples':n_test_samples, 'test_loss':test_loss.data[0]}
+            'n_test_samples':n_test_samples, 'test_loss':get_value(test_loss)}
     return info
 
 
@@ -83,7 +83,7 @@ def run_test_majority_vote(model, test_loader, loss_criterion, prm, n_votes=9):
     test_loss /= n_test_samples
     test_acc = n_correct / n_test_samples
     info = {'test_acc': test_acc, 'n_correct': n_correct, 'test_type': 'majority_vote',
-            'n_test_samples': n_test_samples, 'test_loss': test_loss.data[0]}
+            'n_test_samples': n_test_samples, 'test_loss': get_value(test_loss)}
     return info
 
 
@@ -113,7 +113,7 @@ def run_test_avg_vote(model, test_loader, loss_criterion, prm, n_votes=5):
     test_loss /= n_test_samples
     test_acc = n_correct / n_test_samples
     info = {'test_acc': test_acc, 'n_correct': n_correct, 'test_type': 'AvgVote',
-            'n_test_samples': n_test_samples, 'test_loss': test_loss.data[0]}
+            'n_test_samples': n_test_samples, 'test_loss': get_value(test_loss)}
     return info
 
 
