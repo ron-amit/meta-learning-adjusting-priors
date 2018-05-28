@@ -1,7 +1,6 @@
 
 from __future__ import absolute_import, division, print_function
 
-import argparse
 import os
 import torch
 import numpy as np
@@ -9,7 +8,13 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 from Models.stochastic_models import get_model
-from Utils.common import save_model_state, load_model_state, load_run_data, set_random_seed, get_value
+from Utils.common import load_model_state, load_run_data, get_value
+
+
+matplotlib.rcParams.update({'font.size': 12})
+matplotlib.rcParams.update({'lines.linewidth': 2})
+matplotlib.rcParams['pdf.fonttype'] = 42
+matplotlib.rcParams['ps.fonttype'] = 42
 
 
 # -------------------------------------------------------------------------------------------
@@ -52,9 +57,10 @@ def plot_statistics(mean_list, std_list, name):
     n_list = len(mean_list)
     plt.errorbar(range(n_list), mean_list, yerr=std_list)
     # plt.title("Statistics of the prior {} ".format(name))
-    plt.xticks(np.arange(n_list))
-    plt.xlabel('Layer')
-    plt.ylabel(name)
+    plt.xticks(np.arange(n_list),  fontsize=12)
+    plt.xlabel('Layer',  fontsize=16)
+    plt.ylabel(name, fontsize=16)
+
 
 # -------------------------------------------------------------------------------------------
 # Analysis function:
@@ -89,6 +95,7 @@ def run_prior_analysis(prior_model, showPlt=True):
         layers_names = [str(i) for i in layers_inds]
 
     plt.xticks(layers_inds, layers_names)
+
     if showPlt:
         plt.show()
 
@@ -98,18 +105,13 @@ def run_prior_analysis(prior_model, showPlt=True):
 # -------------------------------------------------------------------------------------------
 if __name__ == "__main__":
 
-    ## plot settings
-    font = {'weight' : 'normal',
-            'size'   : 12}
-    matplotlib.rc('font', **font)
-    matplotlib.rcParams.update({'lines.linewidth': 2})
 
-
-
+    root_saved_dir = 'saved/'
     #***** Enter here the relative path to results dir (with the learned prior you want to analyze):
-    result_dir = 'saved/PermutedLabels_5_Tasks_NewBoundSeeger_Comp'
-    # result_dir = 'saved/Shuffled_200_Pixels_10_Tasks_NewBoundSeeger_Comp'
-    prm, info_dict = load_run_data(result_dir)
+    result_name = 'PermutedLabels_5_Tasks_NewBoundMcAllaster_Comp'
+    # result_name = 'Shuffled_200_Pixels_10_Tasks_NewBoundSeeger_Comp'
+    result_path = root_saved_dir + result_name
+    prm, info_dict = load_run_data(result_path)
 
     # path to the saved learned meta-parameters
     saved_path = os.path.join(prm.result_dir, 'model.pt')
@@ -121,4 +123,6 @@ if __name__ == "__main__":
     load_model_state(prior_model, saved_path)
     print('Pre-trained  prior loaded from ' + saved_path)
 
-    run_prior_analysis(prior_model, showPlt=True)
+    run_prior_analysis(prior_model, showPlt=False)
+    plt.savefig(root_saved_dir + 'layer_variance_' + result_name + '.pdf', format='pdf', bbox_inches='tight')
+    plt.show()

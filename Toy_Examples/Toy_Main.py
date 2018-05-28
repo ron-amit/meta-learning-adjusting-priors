@@ -1,16 +1,14 @@
 from __future__ import absolute_import, division, print_function
 
 import numpy as np
+import matplotlib
 from matplotlib import pyplot as plt
-from matplotlib.patches import Ellipse
-
-import torch
-from torch.autograd import Variable
-import torch.optim as optim
 from Utils.common import  set_random_seed
 
-
-
+matplotlib.rcParams.update({'font.size': 10})
+matplotlib.rcParams.update({'lines.linewidth': 2})
+matplotlib.rcParams['pdf.fonttype'] = 42
+matplotlib.rcParams['ps.fonttype'] = 42
 # -------------------------------------------------------------------------------------------
 #  Create data
 # -------------------------------------------------------------------------------------------
@@ -90,4 +88,8 @@ if learning_type == 'MetaLearnWeights':
     complexity_type = 'PAC_Bayes'  # 'Variational_Bayes' / 'PAC_Bayes' /
     toy_MetaLearnWeights.learn(data_set, complexity_type)
 
+
+plt.savefig('ToyFig1.pdf', format='pdf', bbox_inches='tight')
+
 plt.show()
+
