@@ -1,5 +1,4 @@
-# Implementation of the Meta-Learning-by-Adjusting-Priors algorithm in PyTorch
-
+# Implementation of the paper "Meta-Learning by Adjusting Priors Based on Extended PAC-Bayes Theory" https://arxiv.org/abs/1711.01244
 
 
 ## Prerequisites
