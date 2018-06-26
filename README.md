@@ -1,4 +1,5 @@
-# Implementation of the paper "Meta-Learning by Adjusting Priors Based on Extended PAC-Bayes Theory" https://arxiv.org/abs/1711.01244
+# Implementation of the paper "Meta-Learning by Adjusting Priors Based on Extended PAC-Bayes Theory", ICML
+https://arxiv.org/abs/1711.01244
 
 
 ## Prerequisites
