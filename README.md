@@ -32,3 +32,16 @@ run alternative tranfer methods.
 * Single_Task/main_single_Bayes.py            - Learn stochastic neural network in a single task.
 
 MAML code is based on: https://github.com/katerakelly/pytorch-maml
+
+
+## Citation
+
+```
+@inproceedings{amit2018meta,
+  author = {Ron Amit and Ron Meir},
+  title = {Meta-Learning by Adjusting Priors Based on Extended PAC-Bayes Theory},
+  booktitle = {Proceedings of the 35th International Conference on Machine Learning, {ICML} 2018},
+  year = {2018},
+  month = jul,
+}
+```
