@@ -1,8 +1,7 @@
 # Implementation of the paper "Meta-Learning by Adjusting Priors Based on Extended PAC-Bayes Theory"
 
 ## Paper 
-"Meta-Learning by Adjusting Priors Based on Extended PAC-Bayes Theory", Ron Amit and Ron Meir, ICML 2018
-https://arxiv.org/abs/1711.01244
+Ron Amit, Ron Meir, “Meta-Learning by Adjusting Priors Based on Extended PAC-Bayes Theory”,  ICML 2018   [arXiv]    [code]  [Slides]
 
 
 ## Prerequisites
