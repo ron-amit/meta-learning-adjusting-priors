@@ -9,7 +9,7 @@ Ron Amit, Ron Meir, “Meta-Learning by Adjusting Priors Based on Extended PAC-B
 
 - Anaconda Python 3.5
 - PyTorch 0.4.1 and torchvision 0.2.1  
-- NumPy and Matplotlib
+- Matplotlib
 
 
 ## Data
