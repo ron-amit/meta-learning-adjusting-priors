@@ -7,8 +7,8 @@ Ron Amit, Ron Meir, “Meta-Learning by Adjusting Priors Based on Extended PAC-B
 
 ## Prerequisites
 
-- Python 3.5
-- [PyTorch 0.3+ with CUDA](http://pytorch.org)
+- Anaconda Python 3.5
+- PyTorch 0.4.1 and torchvision 0.2.1  
 - NumPy and Matplotlib
 
 
