@@ -11,6 +11,8 @@ Ron Amit, Ron Meir, “Meta-Learning by Adjusting Priors Based on Extended PAC-B
 - PyTorch 0.4.1 and torchvision 0.2.1  
 - Matplotlib
 
+## A newer version of the code, compatible with PyTorch 1.0:
+https://github.com/ronamit/Meta_PyTorch
 
 ## Data
 The data sets are downloaded automatically.
