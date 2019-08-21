@@ -1,4 +1,3 @@
-# Implementation of the paper "Meta-Learning by Adjusting Priors Based on Extended PAC-Bayes Theory"
 
 ##  Please see updated version of the code here:
 https://github.com/ron-amit/meta-learning-adjusting-priors2
